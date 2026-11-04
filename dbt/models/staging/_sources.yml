@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: lc_accepted
+        description: >
+          Lending Club accepted loans 2007 to 2018Q4, loaded as text by
+          credit_risk/load_raw.py, plus _source_file, _loaded_at and _row_hash.
+        columns:
+          - name: _row_hash
+            tests: [unique, not_null]

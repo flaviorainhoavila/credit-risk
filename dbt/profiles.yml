@@ -1,0 +1,7 @@
+credit_risk:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('CREDIT_RISK_WAREHOUSE', 'data/warehouse.duckdb') }}"
+      threads: 4

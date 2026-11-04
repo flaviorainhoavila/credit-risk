@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: loans
+    description: Loan terms and pricing at origination.
+    columns:
+      - name: loan_id
+        tests: [unique, not_null]
+      - name: borrower_id
+        tests:
+          - not_null
+          - relationships: {arguments: {to: ref('borrowers'), field: borrower_id}}
+      - name: issue_year
+        tests: [not_null, {in_range: {arguments: {min_value: 2007, max_value: 2018}}}]
+  - name: borrowers
+    description: Anonymous borrower profile at application, one per loan.
+    columns:
+      - name: borrower_id
+        tests: [unique, not_null]
+  - name: outcomes
+    description: Loan status at the snapshot, resolution flag and binary label.
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+          - relationships: {arguments: {to: ref('loans'), field: loan_id}}
+      - name: base_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: [Fully Paid, Charged Off, Default, Current, In Grace Period,
+                         "Late (16-30 days)", "Late (31-120 days)"]
+      - name: is_bad
+        tests:
+          - accepted_values: {arguments: {values: [0, 1], quote: false}}

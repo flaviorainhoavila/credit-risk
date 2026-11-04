@@ -1,4 +1,5 @@
 PY := .venv/bin/python
+DBT := .venv/bin/dbt
 
 .PHONY: setup data build train evaluate report all test lint
 
@@ -7,10 +8,12 @@ setup:
 	uv pip install --python $(PY) -e ".[dev]"
 
 data:
-	@echo "pending: implemented in M1" && exit 1
+	$(PY) -m credit_risk.download
+	$(PY) -m credit_risk.load_raw
 
 build:
-	@echo "pending: implemented in M1" && exit 1
+	$(DBT) build --project-dir dbt --profiles-dir dbt
+	$(PY) -m credit_risk.data_quality
 
 train:
 	@echo "pending: implemented in M3" && exit 1

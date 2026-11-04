@@ -1,0 +1,21 @@
+name: credit_risk
+version: "0.0.1"
+config-version: 2
+profile: credit_risk
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+vars:
+  # ASSUMPTION: data snapshot date. The latest last_pymnt_d in the file is Mar 2019.
+  snapshot_date: "2019-03-31"
+
+models:
+  credit_risk:
+    staging:
+      +schema: staging
+      +materialized: table
+    core:
+      +schema: core
+      +materialized: table
