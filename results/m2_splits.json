@@ -1,14 +1,14 @@
 {
   "meta": {
-    "command": "python /Users/flavioavila/projs/ds-projects/credit-risk/credit_risk/split_summary.py",
-    "git_commit": "800c9db77fd4d34f87020e9b7a31999d992d19b4-dirty",
+    "command": "python -m credit_risk.split_summary",
+    "git_commit": "8e0a716f231048ac596df5dd049a698a868c19f8",
     "data_snapshot": {
       "file": "accepted_2007_to_2018Q4.csv.gz",
       "sha256": "55c16f75120f897683f02e7aabcf080d0e4a20c4832feb1d592cfa941bd62a2d"
     },
     "seed": null,
     "config": {},
-    "created_at": "2026-11-04T17:34:45+00:00"
+    "created_at": "2026-11-04T17:42:32+00:00"
   },
   "features": [
     "loan_amnt",
