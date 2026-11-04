@@ -1,0 +1,16 @@
+version: 2
+
+seeds:
+  - name: column_policy
+    description: >
+      Every column of the raw Lending Club file, classified as application,
+      post_origination, outcome or identifier_or_text. Features may use only
+      application columns. Checked by tests/test_leakage.py.
+    columns:
+      - name: column_name
+        tests: [unique, not_null]
+      - name: category
+        tests:
+          - accepted_values:
+              arguments:
+                values: [application, post_origination, outcome, identifier_or_text]

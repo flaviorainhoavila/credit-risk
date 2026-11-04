@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: loan_features
+    description: One row per loan; application-time features only.
+    tests:
+      - no_leaky_feature_columns
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+          - relationships: {arguments: {to: ref('loans'), field: loan_id}}
+      - name: credit_history_months
+        description: Months from the earliest credit line to the issue month.
+        tests: [{in_range: {arguments: {min_value: 0}}}]
+      - name: dti
+        tests: [{in_range: {arguments: {min_value: 0, max_value: 999}}}]

@@ -1,0 +1,152 @@
+column_name,category,reason
+id,identifier_or_text,"loan identifier, not a feature"
+member_id,identifier_or_text,empty in the public file
+loan_amnt,application,known at application or issue
+funded_amnt,post_origination,"set when the loan is funded, after the application"
+funded_amnt_inv,post_origination,"investor funding, known only after listing"
+term,application,known at application or issue
+int_rate,application,known at application or issue
+installment,application,known at application or issue
+grade,application,known at application or issue
+sub_grade,application,known at application or issue
+emp_title,identifier_or_text,"free text, may identify a person"
+emp_length,application,known at application or issue
+home_ownership,application,known at application or issue
+annual_inc,application,known at application or issue
+verification_status,application,known at application or issue
+issue_d,application,known at application or issue
+loan_status,outcome,"final status, source of the label"
+pymnt_plan,post_origination,"payment, collection, hardship or settlement history after issue"
+url,identifier_or_text,listing URL
+desc,identifier_or_text,free text
+purpose,application,known at application or issue
+title,identifier_or_text,free text
+zip_code,identifier_or_text,"geographic proxy, not used"
+addr_state,application,known at application or issue
+dti,application,known at application or issue
+delinq_2yrs,application,known at application or issue
+earliest_cr_line,application,known at application or issue
+fico_range_low,application,known at application or issue
+fico_range_high,application,known at application or issue
+inq_last_6mths,application,known at application or issue
+mths_since_last_delinq,application,known at application or issue
+mths_since_last_record,application,known at application or issue
+open_acc,application,known at application or issue
+pub_rec,application,known at application or issue
+revol_bal,application,known at application or issue
+revol_util,application,known at application or issue
+total_acc,application,known at application or issue
+initial_list_status,application,known at application or issue
+out_prncp,post_origination,"payment, collection, hardship or settlement history after issue"
+out_prncp_inv,post_origination,"payment, collection, hardship or settlement history after issue"
+total_pymnt,post_origination,"payment, collection, hardship or settlement history after issue"
+total_pymnt_inv,post_origination,"payment, collection, hardship or settlement history after issue"
+total_rec_prncp,post_origination,"payment, collection, hardship or settlement history after issue"
+total_rec_int,post_origination,"payment, collection, hardship or settlement history after issue"
+total_rec_late_fee,post_origination,"payment, collection, hardship or settlement history after issue"
+recoveries,post_origination,"payment, collection, hardship or settlement history after issue"
+collection_recovery_fee,post_origination,"payment, collection, hardship or settlement history after issue"
+last_pymnt_d,post_origination,"payment, collection, hardship or settlement history after issue"
+last_pymnt_amnt,post_origination,"payment, collection, hardship or settlement history after issue"
+next_pymnt_d,post_origination,"payment, collection, hardship or settlement history after issue"
+last_credit_pull_d,post_origination,"payment, collection, hardship or settlement history after issue"
+last_fico_range_high,post_origination,"payment, collection, hardship or settlement history after issue"
+last_fico_range_low,post_origination,"payment, collection, hardship or settlement history after issue"
+collections_12_mths_ex_med,application,known at application or issue
+mths_since_last_major_derog,application,known at application or issue
+policy_code,application,known at application or issue
+application_type,application,known at application or issue
+annual_inc_joint,application,known at application or issue
+dti_joint,application,known at application or issue
+verification_status_joint,application,known at application or issue
+acc_now_delinq,application,known at application or issue
+tot_coll_amt,application,known at application or issue
+tot_cur_bal,application,known at application or issue
+open_acc_6m,application,known at application or issue
+open_act_il,application,known at application or issue
+open_il_12m,application,known at application or issue
+open_il_24m,application,known at application or issue
+mths_since_rcnt_il,application,known at application or issue
+total_bal_il,application,known at application or issue
+il_util,application,known at application or issue
+open_rv_12m,application,known at application or issue
+open_rv_24m,application,known at application or issue
+max_bal_bc,application,known at application or issue
+all_util,application,known at application or issue
+total_rev_hi_lim,application,known at application or issue
+inq_fi,application,known at application or issue
+total_cu_tl,application,known at application or issue
+inq_last_12m,application,known at application or issue
+acc_open_past_24mths,application,known at application or issue
+avg_cur_bal,application,known at application or issue
+bc_open_to_buy,application,known at application or issue
+bc_util,application,known at application or issue
+chargeoff_within_12_mths,application,known at application or issue
+delinq_amnt,application,known at application or issue
+mo_sin_old_il_acct,application,known at application or issue
+mo_sin_old_rev_tl_op,application,known at application or issue
+mo_sin_rcnt_rev_tl_op,application,known at application or issue
+mo_sin_rcnt_tl,application,known at application or issue
+mort_acc,application,known at application or issue
+mths_since_recent_bc,application,known at application or issue
+mths_since_recent_bc_dlq,application,known at application or issue
+mths_since_recent_inq,application,known at application or issue
+mths_since_recent_revol_delinq,application,known at application or issue
+num_accts_ever_120_pd,application,known at application or issue
+num_actv_bc_tl,application,known at application or issue
+num_actv_rev_tl,application,known at application or issue
+num_bc_sats,application,known at application or issue
+num_bc_tl,application,known at application or issue
+num_il_tl,application,known at application or issue
+num_op_rev_tl,application,known at application or issue
+num_rev_accts,application,known at application or issue
+num_rev_tl_bal_gt_0,application,known at application or issue
+num_sats,application,known at application or issue
+num_tl_120dpd_2m,application,known at application or issue
+num_tl_30dpd,application,known at application or issue
+num_tl_90g_dpd_24m,application,known at application or issue
+num_tl_op_past_12m,application,known at application or issue
+pct_tl_nvr_dlq,application,known at application or issue
+percent_bc_gt_75,application,known at application or issue
+pub_rec_bankruptcies,application,known at application or issue
+tax_liens,application,known at application or issue
+tot_hi_cred_lim,application,known at application or issue
+total_bal_ex_mort,application,known at application or issue
+total_bc_limit,application,known at application or issue
+total_il_high_credit_limit,application,known at application or issue
+revol_bal_joint,application,known at application or issue
+sec_app_fico_range_low,application,known at application or issue
+sec_app_fico_range_high,application,known at application or issue
+sec_app_earliest_cr_line,application,known at application or issue
+sec_app_inq_last_6mths,application,known at application or issue
+sec_app_mort_acc,application,known at application or issue
+sec_app_open_acc,application,known at application or issue
+sec_app_revol_util,application,known at application or issue
+sec_app_open_act_il,application,known at application or issue
+sec_app_num_rev_accts,application,known at application or issue
+sec_app_chargeoff_within_12_mths,application,known at application or issue
+sec_app_collections_12_mths_ex_med,application,known at application or issue
+sec_app_mths_since_last_major_derog,application,known at application or issue
+hardship_flag,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_type,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_reason,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_status,post_origination,"payment, collection, hardship or settlement history after issue"
+deferral_term,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_amount,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_start_date,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_end_date,post_origination,"payment, collection, hardship or settlement history after issue"
+payment_plan_start_date,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_length,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_dpd,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_loan_status,post_origination,"payment, collection, hardship or settlement history after issue"
+orig_projected_additional_accrued_interest,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_payoff_balance_amount,post_origination,"payment, collection, hardship or settlement history after issue"
+hardship_last_payment_amount,post_origination,"payment, collection, hardship or settlement history after issue"
+disbursement_method,application,known at application or issue
+debt_settlement_flag,post_origination,"payment, collection, hardship or settlement history after issue"
+debt_settlement_flag_date,post_origination,"payment, collection, hardship or settlement history after issue"
+settlement_status,post_origination,"payment, collection, hardship or settlement history after issue"
+settlement_date,post_origination,"payment, collection, hardship or settlement history after issue"
+settlement_amount,post_origination,"payment, collection, hardship or settlement history after issue"
+settlement_percentage,post_origination,"payment, collection, hardship or settlement history after issue"
+settlement_term,post_origination,"payment, collection, hardship or settlement history after issue"

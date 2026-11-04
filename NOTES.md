@@ -48,3 +48,34 @@ From `results/m1_data_quality.json`:
 - Several bureau attributes are null for a large share of loans (for example `mths_since_last_delinq` 51%, `mths_since_last_record` 84%); missingness also changes by vintage because Lending Club added fields over time. Checked per vintage in M2.
 
 Decision from the user (2026-11-04): label and maturity choice "36-month loans, matured vintages only" (see `docs/assumptions.md`).
+
+## M2 Features and splits
+
+Done:
+
+- `dbt/seeds/column_policy.csv`: all 151 raw columns classified (103 application, 40 post_origination, 7 identifier_or_text, 1 outcome).
+- `features.loan_features` (dbt): one row per loan from `core.loans` and `core.borrowers` only; 31 features including 5 derived (`fico_mid`, `credit_history_months`, `loan_to_income`, `payment_to_income`, `revol_bal_to_income`).
+- `ml.splits` (dbt): resolved 36-month loans 2007 to 2015 with `split` in train (2007 to 2012), validation (2013), test_2014, test_2015.
+- Leakage guards: `credit_risk/leakage.py` (`check_features`, also called by the training code), `tests/test_leakage.py` (policy covers every raw column; known post-origination columns excluded; the feature model reads only `loans` and `borrowers`; the built table passes the check), and the dbt test `no_leaky_feature_columns` on `loan_features`.
+- Label, censoring, maturity and feature choices are in `docs/assumptions.md`.
+
+Commands and results:
+
+```bash
+make build   # dbt build: PASS=54 WARN=0 ERROR=0; then data_quality and split_summary
+python -m credit_risk.split_summary   # results/m2_splits.json
+```
+
+From `results/m2_splits.json`:
+
+| Split | Issue years | Loans | Bad rate |
+|---|---|---|---|
+| train | 2007 to 2012 | 75,004 | 0.1304 |
+| validation | 2013 | 100,422 | 0.1233 |
+| test_2014 | 2014 | 162,570 | 0.1373 |
+| test_2015 | 2015 | 283,026 | 0.1489 |
+
+Notes:
+
+- The training set is smaller than each later vintage because Lending Club grew quickly. That follows from the out-of-time design chosen with the user.
+- `mths_since_last_delinq` is null for 61% of train and 48% of test_2015, so the share of applicants with a past delinquency rises over time.

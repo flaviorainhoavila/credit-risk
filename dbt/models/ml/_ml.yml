@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: splits
+    description: Resolved 36-month loans 2007 to 2015 with label and out-of-time split.
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+          - relationships: {arguments: {to: ref('loan_features'), field: loan_id}}
+      - name: is_bad
+        tests: [not_null, {accepted_values: {arguments: {values: [0, 1], quote: false}}}]
+      - name: split
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [train, validation, test_2014, test_2015]

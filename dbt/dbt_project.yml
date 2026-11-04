@@ -10,6 +10,10 @@ macro-paths: ["macros"]
 vars:
   # ASSUMPTION: data snapshot date. The latest last_pymnt_d in the file is Mar 2019.
   snapshot_date: "2019-03-31"
+  # Out-of-time split by issue year (docs/assumptions.md).
+  train_last_year: 2012
+  validation_year: 2013
+  last_vintage: 2015
 
 models:
   credit_risk:
@@ -19,3 +23,13 @@ models:
     core:
       +schema: core
       +materialized: table
+    features:
+      +schema: features
+      +materialized: table
+    ml:
+      +schema: ml
+      +materialized: table
+
+seeds:
+  credit_risk:
+    +schema: meta

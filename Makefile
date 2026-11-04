@@ -14,6 +14,7 @@ data:
 build:
 	$(DBT) build --project-dir dbt --profiles-dir dbt
 	$(PY) -m credit_risk.data_quality
+	$(PY) -m credit_risk.split_summary
 
 train:
 	@echo "pending: implemented in M3" && exit 1
