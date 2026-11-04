@@ -36,13 +36,22 @@ def data_snapshot() -> dict:
     return {"file": meta["file"], "sha256": meta["sha256"]}
 
 
+def command_line() -> str:
+    """The command that is running, as typed: ``python -m pkg.mod args`` for modules."""
+    main = sys.modules.get("__main__")
+    spec = getattr(main, "__spec__", None)
+    if spec is not None and spec.name:
+        return " ".join(["python", "-m", spec.name, *sys.argv[1:]])
+    return " ".join(["python", *sys.argv])
+
+
 def write_result(
     name: str, payload: dict, config: dict | None = None, seed: int | None = None
 ) -> Path:
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = {
         "meta": {
-            "command": " ".join([Path(sys.executable).name, *sys.argv]),
+            "command": command_line(),
             "git_commit": git_commit(),
             "data_snapshot": data_snapshot(),
             "seed": seed,

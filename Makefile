@@ -1,4 +1,5 @@
 PY := .venv/bin/python
+export MLFLOW_DISABLE_AGENT_HINT := 1
 DBT := .venv/bin/dbt
 
 .PHONY: setup data build train evaluate report all test lint
@@ -17,13 +18,13 @@ build:
 	$(PY) -m credit_risk.split_summary
 
 train:
-	@echo "pending: implemented in M3" && exit 1
+	$(PY) -m credit_risk.train
 
 evaluate:
-	@echo "pending: implemented in M3" && exit 1
+	$(PY) -m credit_risk.evaluate
 
 report:
-	@echo "pending: implemented in M3" && exit 1
+	$(PY) -m credit_risk.report
 
 all: data build train evaluate report
 

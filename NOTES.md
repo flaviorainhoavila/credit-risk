@@ -54,7 +54,7 @@ Decision from the user (2026-11-04): label and maturity choice "36-month loans, 
 Done:
 
 - `dbt/seeds/column_policy.csv`: all 151 raw columns classified (103 application, 40 post_origination, 7 identifier_or_text, 1 outcome).
-- `features.loan_features` (dbt): one row per loan from `core.loans` and `core.borrowers` only; 31 features including 5 derived (`fico_mid`, `credit_history_months`, `loan_to_income`, `payment_to_income`, `revol_bal_to_income`).
+- `features.loan_features` (dbt): one row per loan from `core.loans` and `core.borrowers` only; 32 features including 5 derived (`fico_mid`, `credit_history_months`, `loan_to_income`, `payment_to_income`, `revol_bal_to_income`).
 - `ml.splits` (dbt): resolved 36-month loans 2007 to 2015 with `split` in train (2007 to 2012), validation (2013), test_2014, test_2015.
 - Leakage guards: `credit_risk/leakage.py` (`check_features`, also called by the training code), `tests/test_leakage.py` (policy covers every raw column; known post-origination columns excluded; the feature model reads only `loans` and `borrowers`; the built table passes the check), and the dbt test `no_leaky_feature_columns` on `loan_features`.
 - Label, censoring, maturity and feature choices are in `docs/assumptions.md`.
@@ -79,3 +79,28 @@ Notes:
 
 - The training set is smaller than each later vintage because Lending Club grew quickly. That follows from the out-of-time design chosen with the user.
 - `mths_since_last_delinq` is null for 61% of train and 48% of test_2015, so the share of applicants with a past delinquency rises over time.
+
+## M3 Baselines
+
+Done:
+
+- `credit_risk/scorecard.py`: WoE scorecard (10 quantile bins, missing as its own bin, categorical levels with fewer than 200 training rows pooled, L2 logistic regression, points with PDO 20 and 600 at 50:1). Reason contributions are log-odds above each feature's lowest-risk bin.
+- XGBoost (`credit_risk/train.py`): depth 4, learning rate 0.05, subsample and colsample 0.8, min_child_weight 50, native categorical handling, early stopping on 2013 (100 rounds). Not tuned.
+- SHAP: exact TreeSHAP from `xgboost` `pred_contribs` for the reason codes of all test loans; the `shap` package on a 20,000-loan sample of 2015 for the global summary. A test checks that the two agree.
+- `ml.scores` (every split, both models) and `ml.reason_codes` (top 3 positive contributions per test loan) in the warehouse.
+- MLflow: local SQLite store and artifacts in `mlruns/`. MLflow 3.18 refuses the plain file store (maintenance mode), so SQLite is used instead; still local only.
+- `credit_risk/metrics.py`: AUC, KS, Brier, calibration table and decile lift; `credit_risk/evaluate.py` writes `results/m3_evaluation.json` and logs metrics to the MLflow runs; `credit_risk/report.py` writes the README results section from the JSON files.
+
+Commands:
+
+```bash
+make train evaluate report
+```
+
+Results: see the README Results section, generated from `results/m3_evaluation.json`, `results/m3_training.json`, `results/m3_shap.json` and `results/m2_splits.json`.
+
+Open questions for review:
+
+- `addr_state` is the first reason code for most test loans under the scorecard, and is high in the XGBoost SHAP ranking. Keep it as a feature, pool it harder, or drop it? Not changed here, to avoid tuning after seeing test results.
+- Mean PD is below the observed bad rate in 2015 (vintage drift). Recalibration belongs to M6.
+- Random K-fold as a secondary comparison is not run (pending).
