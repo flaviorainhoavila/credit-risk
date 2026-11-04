@@ -19,3 +19,6 @@ __pycache__/
 .ruff_cache/
 .DS_Store
 dbt/.user.yml
+
+# local working notes, not part of the repo
+KICKOFF_PROMPT.md
