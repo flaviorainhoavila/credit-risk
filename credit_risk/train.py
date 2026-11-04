@@ -135,7 +135,7 @@ def fit_xgboost(df, features):
     )
     FIGURES.mkdir(exist_ok=True)
     shap.plots.bar(sv, max_display=15, show=False)
-    plt.title("XGBoost: mean |SHAP| (log-odds), 20,000 loans from the 2015 vintage")
+    plt.title("XGBoost, mean |SHAP| in log-odds\n20,000 loans from the 2015 vintage", fontsize=10)
     plt.tight_layout()
     plt.savefig(FIGURES / "m3_shap_importance.png", dpi=150)
     plt.close("all")
