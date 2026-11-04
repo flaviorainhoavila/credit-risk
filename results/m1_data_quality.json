@@ -1,0 +1,675 @@
+{
+  "meta": {
+    "command": "python /Users/flavioavila/projs/ds-projects/credit-risk/credit_risk/data_quality.py",
+    "git_commit": "0efe1d8e507df9c012459d45095720ab69e61faa",
+    "data_snapshot": {
+      "file": "accepted_2007_to_2018Q4.csv.gz",
+      "sha256": "55c16f75120f897683f02e7aabcf080d0e4a20c4832feb1d592cfa941bd62a2d"
+    },
+    "seed": null,
+    "config": {},
+    "created_at": "2026-11-04T17:32:33+00:00"
+  },
+  "row_counts": {
+    "raw.lc_accepted": 2260701,
+    "staging.stg_lc__loans": 2260668,
+    "core.loans": 2260668,
+    "core.borrowers": 2260668,
+    "core.outcomes": 2260668
+  },
+  "rows_dropped_in_staging": 33,
+  "duplicates": {
+    "raw_row_hash": 0,
+    "staging_loan_id": 0
+  },
+  "loan_status_counts": {
+    "Fully Paid": 1076751,
+    "Current": 878317,
+    "Charged Off": 268559,
+    "Late (31-120 days)": 21467,
+    "In Grace Period": 8436,
+    "Late (16-30 days)": 4349,
+    "Does not meet the credit policy. Status:Fully Paid": 1988,
+    "Does not meet the credit policy. Status:Charged Off": 761,
+    "Default": 40
+  },
+  "by_vintage": [
+    {
+      "issue_year": 2007,
+      "term_months": 36,
+      "n": 603,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.262
+    },
+    {
+      "issue_year": 2008,
+      "term_months": 36,
+      "n": 2393,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.2073
+    },
+    {
+      "issue_year": 2009,
+      "term_months": 36,
+      "n": 5281,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1369
+    },
+    {
+      "issue_year": 2010,
+      "term_months": 36,
+      "n": 9156,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1092
+    },
+    {
+      "issue_year": 2010,
+      "term_months": 60,
+      "n": 3381,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.2239
+    },
+    {
+      "issue_year": 2011,
+      "term_months": 36,
+      "n": 14101,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1063
+    },
+    {
+      "issue_year": 2011,
+      "term_months": 60,
+      "n": 7620,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.236
+    },
+    {
+      "issue_year": 2012,
+      "term_months": 36,
+      "n": 43470,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1358
+    },
+    {
+      "issue_year": 2012,
+      "term_months": 60,
+      "n": 9897,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.277
+    },
+    {
+      "issue_year": 2013,
+      "term_months": 36,
+      "n": 100422,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1233
+    },
+    {
+      "issue_year": 2013,
+      "term_months": 60,
+      "n": 34392,
+      "resolved_fraction": 0.9997,
+      "bad_rate_resolved": 0.2515
+    },
+    {
+      "issue_year": 2014,
+      "term_months": 36,
+      "n": 162570,
+      "resolved_fraction": 1.0,
+      "bad_rate_resolved": 0.1373
+    },
+    {
+      "issue_year": 2014,
+      "term_months": 60,
+      "n": 73059,
+      "resolved_fraction": 0.8285,
+      "bad_rate_resolved": 0.3114
+    },
+    {
+      "issue_year": 2015,
+      "term_months": 36,
+      "n": 283173,
+      "resolved_fraction": 0.9995,
+      "bad_rate_resolved": 0.1489
+    },
+    {
+      "issue_year": 2015,
+      "term_months": 60,
+      "n": 137922,
+      "resolved_fraction": 0.6708,
+      "bad_rate_resolved": 0.3639
+    },
+    {
+      "issue_year": 2016,
+      "term_months": 36,
+      "n": 323495,
+      "resolved_fraction": 0.7183,
+      "bad_rate_resolved": 0.1985
+    },
+    {
+      "issue_year": 2016,
+      "term_months": 60,
+      "n": 110912,
+      "resolved_fraction": 0.5477,
+      "bad_rate_resolved": 0.3643
+    },
+    {
+      "issue_year": 2017,
+      "term_months": 36,
+      "n": 320419,
+      "resolved_fraction": 0.4012,
+      "bad_rate_resolved": 0.2002
+    },
+    {
+      "issue_year": 2017,
+      "term_months": 60,
+      "n": 123160,
+      "resolved_fraction": 0.331,
+      "bad_rate_resolved": 0.3295
+    },
+    {
+      "issue_year": 2018,
+      "term_months": 36,
+      "n": 344671,
+      "resolved_fraction": 0.1197,
+      "bad_rate_resolved": 0.1325
+    },
+    {
+      "issue_year": 2018,
+      "term_months": 60,
+      "n": 150571,
+      "resolved_fraction": 0.0999,
+      "bad_rate_resolved": 0.2264
+    }
+  ],
+  "columns": {
+    "core.loans": {
+      "loan_id": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 54734,
+        "max": 145647287
+      },
+      "borrower_id": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 54734,
+        "max": 145647287
+      },
+      "issue_date": {
+        "type": "DATE",
+        "null_fraction": 0.0,
+        "min": "2007-06-01",
+        "max": "2018-12-01"
+      },
+      "issue_year": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 2007,
+        "max": 2018
+      },
+      "term_months": {
+        "type": "INTEGER",
+        "null_fraction": 0.0,
+        "min": 36,
+        "max": 60
+      },
+      "loan_amnt": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 500.0,
+        "max": 40000.0
+      },
+      "int_rate": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 5.31,
+        "max": 30.99
+      },
+      "installment": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 4.93,
+        "max": 1719.83
+      },
+      "grade": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "sub_grade": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "purpose": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "initial_list_status": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "application_type": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "verification_status": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      }
+    },
+    "core.borrowers": {
+      "borrower_id": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 54734,
+        "max": 145647287
+      },
+      "emp_length": {
+        "type": "VARCHAR",
+        "null_fraction": 0.064984
+      },
+      "home_ownership": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "annual_inc": {
+        "type": "DOUBLE",
+        "null_fraction": 2e-06,
+        "min": 0.0,
+        "max": 110000000.0
+      },
+      "annual_inc_joint": {
+        "type": "DOUBLE",
+        "null_fraction": 0.946604,
+        "min": 5693.51,
+        "max": 7874821.0
+      },
+      "dti": {
+        "type": "DOUBLE",
+        "null_fraction": 0.000757,
+        "min": -1.0,
+        "max": 999.0
+      },
+      "dti_joint": {
+        "type": "DOUBLE",
+        "null_fraction": 0.946606,
+        "min": 0.0,
+        "max": 69.49
+      },
+      "addr_state": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "earliest_cr_line_date": {
+        "type": "DATE",
+        "null_fraction": 1.3e-05,
+        "min": "1933-03-01",
+        "max": "2015-11-01"
+      },
+      "fico_range_low": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 610.0,
+        "max": 845.0
+      },
+      "fico_range_high": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 614.0,
+        "max": 850.0
+      },
+      "delinq_2yrs": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 58.0
+      },
+      "inq_last_6mths": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 33.0
+      },
+      "mths_since_last_delinq": {
+        "type": "DOUBLE",
+        "null_fraction": 0.51246,
+        "min": 0.0,
+        "max": 226.0
+      },
+      "mths_since_last_record": {
+        "type": "DOUBLE",
+        "null_fraction": 0.841128,
+        "min": 0.0,
+        "max": 129.0
+      },
+      "open_acc": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 101.0
+      },
+      "pub_rec": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 86.0
+      },
+      "revol_bal": {
+        "type": "DOUBLE",
+        "null_fraction": 0.0,
+        "min": 0.0,
+        "max": 2904836.0
+      },
+      "revol_util": {
+        "type": "DOUBLE",
+        "null_fraction": 0.000797,
+        "min": 0.0,
+        "max": 892.3
+      },
+      "total_acc": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 1.0,
+        "max": 176.0
+      },
+      "collections_12_mths_ex_med": {
+        "type": "DOUBLE",
+        "null_fraction": 6.4e-05,
+        "min": 0.0,
+        "max": 20.0
+      },
+      "mths_since_last_major_derog": {
+        "type": "DOUBLE",
+        "null_fraction": 0.743096,
+        "min": 0.0,
+        "max": 226.0
+      },
+      "acc_now_delinq": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 14.0
+      },
+      "tot_coll_amt": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 9152545.0
+      },
+      "tot_cur_bal": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 9971659.0
+      },
+      "total_rev_hi_lim": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 9999999.0
+      },
+      "acc_open_past_24mths": {
+        "type": "DOUBLE",
+        "null_fraction": 0.022131,
+        "min": 0.0,
+        "max": 64.0
+      },
+      "avg_cur_bal": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031117,
+        "min": 0.0,
+        "max": 958084.0
+      },
+      "bc_open_to_buy": {
+        "type": "DOUBLE",
+        "null_fraction": 0.033147,
+        "min": 0.0,
+        "max": 711140.0
+      },
+      "bc_util": {
+        "type": "DOUBLE",
+        "null_fraction": 0.03365,
+        "min": 0.0,
+        "max": 339.6
+      },
+      "chargeoff_within_12_mths": {
+        "type": "DOUBLE",
+        "null_fraction": 6.4e-05,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "delinq_amnt": {
+        "type": "DOUBLE",
+        "null_fraction": 1.3e-05,
+        "min": 0.0,
+        "max": 249925.0
+      },
+      "mo_sin_old_il_acct": {
+        "type": "DOUBLE",
+        "null_fraction": 0.061518,
+        "min": 0.0,
+        "max": 999.0
+      },
+      "mo_sin_old_rev_tl_op": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031087,
+        "min": 1.0,
+        "max": 999.0
+      },
+      "mo_sin_rcnt_rev_tl_op": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031087,
+        "min": 0.0,
+        "max": 547.0
+      },
+      "mo_sin_rcnt_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 382.0
+      },
+      "mort_acc": {
+        "type": "DOUBLE",
+        "null_fraction": 0.022131,
+        "min": 0.0,
+        "max": 94.0
+      },
+      "mths_since_recent_bc": {
+        "type": "DOUBLE",
+        "null_fraction": 0.032474,
+        "min": 0.0,
+        "max": 661.0
+      },
+      "mths_since_recent_inq": {
+        "type": "DOUBLE",
+        "null_fraction": 0.130685,
+        "min": 0.0,
+        "max": 25.0
+      },
+      "num_accts_ever_120_pd": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 58.0
+      },
+      "num_actv_bc_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 50.0
+      },
+      "num_actv_rev_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 72.0
+      },
+      "num_bc_sats": {
+        "type": "DOUBLE",
+        "null_fraction": 0.025917,
+        "min": 0.0,
+        "max": 71.0
+      },
+      "num_bc_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 86.0
+      },
+      "num_il_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 159.0
+      },
+      "num_op_rev_tl": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 91.0
+      },
+      "num_rev_accts": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031087,
+        "min": 0.0,
+        "max": 151.0
+      },
+      "num_rev_tl_bal_gt_0": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 65.0
+      },
+      "num_sats": {
+        "type": "DOUBLE",
+        "null_fraction": 0.025917,
+        "min": 0.0,
+        "max": 101.0
+      },
+      "num_tl_120dpd_2m": {
+        "type": "DOUBLE",
+        "null_fraction": 0.06797,
+        "min": 0.0,
+        "max": 7.0
+      },
+      "num_tl_30dpd": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "num_tl_90g_dpd_24m": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 58.0
+      },
+      "num_tl_op_past_12m": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 32.0
+      },
+      "pct_tl_nvr_dlq": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031155,
+        "min": 0.0,
+        "max": 100.0
+      },
+      "percent_bc_gt_75": {
+        "type": "DOUBLE",
+        "null_fraction": 0.033344,
+        "min": 0.0,
+        "max": 100.0
+      },
+      "pub_rec_bankruptcies": {
+        "type": "DOUBLE",
+        "null_fraction": 0.000604,
+        "min": 0.0,
+        "max": 12.0
+      },
+      "tax_liens": {
+        "type": "DOUBLE",
+        "null_fraction": 4.6e-05,
+        "min": 0.0,
+        "max": 85.0
+      },
+      "tot_hi_cred_lim": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 9999999.0
+      },
+      "total_bal_ex_mort": {
+        "type": "DOUBLE",
+        "null_fraction": 0.022131,
+        "min": 0.0,
+        "max": 3408095.0
+      },
+      "total_bc_limit": {
+        "type": "DOUBLE",
+        "null_fraction": 0.022131,
+        "min": 0.0,
+        "max": 1569000.0
+      },
+      "total_il_high_credit_limit": {
+        "type": "DOUBLE",
+        "null_fraction": 0.031086,
+        "min": 0.0,
+        "max": 2118996.0
+      }
+    },
+    "core.outcomes": {
+      "loan_id": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 54734,
+        "max": 145647287
+      },
+      "loan_status": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "base_status": {
+        "type": "VARCHAR",
+        "null_fraction": 0.0
+      },
+      "off_policy": {
+        "type": "BOOLEAN",
+        "null_fraction": 0.0
+      },
+      "is_resolved": {
+        "type": "BOOLEAN",
+        "null_fraction": 0.0
+      },
+      "is_bad": {
+        "type": "INTEGER",
+        "null_fraction": 0.403672,
+        "min": 0,
+        "max": 1
+      },
+      "last_pymnt_date": {
+        "type": "DATE",
+        "null_fraction": 0.001074,
+        "min": "2007-12-01",
+        "max": "2019-03-01"
+      },
+      "snapshot_date": {
+        "type": "DATE",
+        "null_fraction": 0.0,
+        "min": "2019-03-31",
+        "max": "2019-03-31"
+      },
+      "months_observed": {
+        "type": "BIGINT",
+        "null_fraction": 0.0,
+        "min": 3,
+        "max": 141
+      },
+      "is_matured": {
+        "type": "BOOLEAN",
+        "null_fraction": 0.0
+      }
+    }
+  }
+}
