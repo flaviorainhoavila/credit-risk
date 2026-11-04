@@ -10,6 +10,8 @@ from pathlib import Path
 
 from credit_risk.paths import RAW_DIR, RESULTS, ROOT
 
+OUTPUT_PATHS = ("results", "figures", "README.md")
+
 
 def git_commit() -> str:
     try:
@@ -17,7 +19,9 @@ def git_commit() -> str:
             ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True
         ).stdout.strip()
         dirty = subprocess.run(
-            ["git", "status", "--porcelain", "--untracked-files=no"],
+            # Generated outputs do not make the code dirty.
+            ["git", "status", "--porcelain", "--untracked-files=no", "--", "."]
+            + [f":!{p}" for p in OUTPUT_PATHS],
             cwd=ROOT,
             capture_output=True,
             text=True,
