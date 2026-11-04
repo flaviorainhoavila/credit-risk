@@ -1,14 +1,14 @@
 {
   "meta": {
     "command": "python /Users/flavioavila/projs/ds-projects/credit-risk/credit_risk/data_quality.py",
-    "git_commit": "0efe1d8e507df9c012459d45095720ab69e61faa",
+    "git_commit": "800c9db77fd4d34f87020e9b7a31999d992d19b4",
     "data_snapshot": {
       "file": "accepted_2007_to_2018Q4.csv.gz",
       "sha256": "55c16f75120f897683f02e7aabcf080d0e4a20c4832feb1d592cfa941bd62a2d"
     },
     "seed": null,
     "config": {},
-    "created_at": "2026-11-04T17:32:33+00:00"
+    "created_at": "2026-11-04T17:34:45+00:00"
   },
   "row_counts": {
     "raw.lc_accepted": 2260701,
