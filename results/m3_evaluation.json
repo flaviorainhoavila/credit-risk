@@ -1,14 +1,14 @@
 {
   "meta": {
     "command": "python -m credit_risk.evaluate",
-    "git_commit": "8e0a716f231048ac596df5dd049a698a868c19f8",
+    "git_commit": "cf64e87e62fe2667752f3e03b397b7a9b2baf374",
     "data_snapshot": {
       "file": "accepted_2007_to_2018Q4.csv.gz",
       "sha256": "55c16f75120f897683f02e7aabcf080d0e4a20c4832feb1d592cfa941bd62a2d"
     },
     "seed": null,
     "config": {},
-    "created_at": "2026-11-04T17:42:52+00:00"
+    "created_at": "2026-11-04T23:33:49+00:00"
   },
   "evaluation": {
     "scorecard": {
@@ -302,7 +302,7 @@
         "mean_pd": 0.1414554978931856,
         "auc": 0.6588417155388835,
         "ks": 0.23400830373517112,
-        "brier": 0.11440759857450418,
+        "brier": 0.11440759857450417,
         "calibration": [
           {
             "bin": 0,
@@ -444,7 +444,7 @@
         "mean_pd": 0.13262881304962842,
         "auc": 0.6684129497262875,
         "ks": 0.24591945215313815,
-        "brier": 0.12155594583703486,
+        "brier": 0.12155594583703483,
         "calibration": [
           {
             "bin": 0,
@@ -730,7 +730,7 @@
         "mean_pd": 0.1374116792705506,
         "auc": 0.6644613638920048,
         "ks": 0.23996234047079923,
-        "brier": 0.10447017711765047,
+        "brier": 0.10447017711765048,
         "calibration": [
           {
             "bin": 0,

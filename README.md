@@ -67,7 +67,7 @@ MLflow UI: `.venv/bin/mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`.
 ## Results
 
 <!-- results:start -->
-Produced by `python -m credit_risk.evaluate` at commit `8e0a716f2310` (models from `python -m credit_risk.train`, seed 0), data SHA-256 `55c16f75120f...`. Source: `results/m3_evaluation.json`.
+Produced by `python -m credit_risk.evaluate` at commit `cf64e87e62fe` (models from `python -m credit_risk.train`, seed 0), data SHA-256 `55c16f75120f...`. Source: `results/m3_evaluation.json`.
 
 Out-of-time evaluation by issue year. Both models are fitted on 2007 to 2012; XGBoost stops early on 2013. Top-decile lift is the bad rate of the riskiest 10% divided by the vintage bad rate; capture is the share of all bads in the riskiest 30%.
 

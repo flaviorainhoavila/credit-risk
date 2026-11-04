@@ -1,7 +1,7 @@
 {
   "meta": {
     "command": "python -m credit_risk.train",
-    "git_commit": "8e0a716f231048ac596df5dd049a698a868c19f8",
+    "git_commit": "cf64e87e62fe2667752f3e03b397b7a9b2baf374",
     "data_snapshot": {
       "file": "accepted_2007_to_2018Q4.csv.gz",
       "sha256": "55c16f75120f897683f02e7aabcf080d0e4a20c4832feb1d592cfa941bd62a2d"
@@ -45,11 +45,11 @@
       ],
       "top_k_reasons": 3
     },
-    "created_at": "2026-11-04T17:42:49+00:00"
+    "created_at": "2026-11-04T23:33:47+00:00"
   },
   "models": {
     "scorecard": {
-      "mlflow_run_id": "9466cc85d9414d0ab99ff8843cbbb6b7",
+      "mlflow_run_id": "b1b330693cc841ee9446d8ecee128486",
       "params": {
         "n_bins": 10,
         "min_level_count": 200,
@@ -57,7 +57,7 @@
       }
     },
     "xgboost": {
-      "mlflow_run_id": "b9ff910ff0cb4b918923fe3ee155b2ed",
+      "mlflow_run_id": "fdf0ed58ddc5454c9cbda51762b4ca8a",
       "params": {
         "objective": "binary:logistic",
         "eval_metric": "logloss",
