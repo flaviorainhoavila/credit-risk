@@ -49,11 +49,24 @@ A customer is a bust-out case at month t if the simulator assigned the bust-out 
 
 ## Features (examples, built in SQL)
 
+Batch features use a 12-month lookback window ending at the scoring month.
+
 - Number of open accounts and issuers, new accounts in the last 3 and 6 months.
 - Total and per-issuer utilization, and its change over 1, 3 and 6 months.
 - Credit line increases across issuers in the last 6 months.
 - Cash advance share of balance; payment-to-balance ratio; failed payments.
 - Spread of behavior across issuers (for example utilization rising at all issuers at once).
+
+## Real-time detection as a signal processing problem
+
+Each customer's activity across issuers is a set of irregularly sampled time series (balances, payments, cash advances, line changes). A bust-out is a change in the generating process: a stable regime followed by a ramp. The streaming path treats it that way:
+
+- **Recursive features with constant state**: exponentially weighted means and variances (first-order IIR filters) updated per event, instead of recomputing 12-month windows. The batch and streaming versions are tested for agreement.
+- **Online change-point detection**: CUSUM on utilization and payment ratios, and Bayesian online change-point detection (Adams and MacKay, 2007 [4]), which gives a posterior probability that the customer's regime has changed.
+- **State-space model**: a Kalman filter on a latent spending-ramp state per customer, combining observations from all issuers, with irregular sampling handled through the time step.
+- **Score fusion**: the batch model's monthly score combined with the streaming change signals; evaluated by lead time gained over the batch model alone.
+
+This needs finer data than monthly statements near the bust, so the simulator emits daily transactions in addition to monthly statements.
 
 ## Evaluation
 
@@ -71,7 +84,7 @@ A customer is a bust-out case at month t if the simulator assigned the bust-out 
 
 ## Open questions
 
-1. Monthly grain only, or also daily transactions for the last months before the bust?
+1. Daily transactions for all customers, or only around the bust window (data volume against realism)?
 2. Number of persons in the default simulation (small for tests and laptop runs; large for the PySpark milestone).
 3. Horizon H and review budget.
 4. Whether to use Home Credit at all, depending on its terms of use.
@@ -81,3 +94,4 @@ A customer is a bust-out case at month t if the simulator assigned the bust-out 
 1. Experian Information Solutions, "Systems and methods for detecting bust out fraud using credit data", US patent 8,001,042 B1. https://patents.google.com/patent/US8001042
 2. TransUnion newsroom, on rapid default and bust-out fraud. https://newsroom.transunion.com/as-financial-institutions-face-greater-rapid-default-fraud-and-credit-risks-transunion-fortifies-its-idvision-with-iovation-suite-of-solutions/
 3. Chargebacks911, "What is bust-out fraud". https://chargebacks911.com/ecommerce-fraud/bust-out-fraud/what-is-bust-out-fraud.md
+4. R. P. Adams and D. J. C. MacKay, "Bayesian online changepoint detection", arXiv:0710.3742, 2007.

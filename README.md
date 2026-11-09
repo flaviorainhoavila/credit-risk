@@ -135,7 +135,7 @@ Part 1, underwriting at origination (Lending Club):
 Part 2, bust-out detection on consortium data (design: [docs/design_bust_out.md](docs/design_bust_out.md)):
 
 - M8: simulated consortium of card issuers sending monthly account feeds; data contracts, per-contributor quality checks, cross-issuer customer linkage with hashed tokens; lake, warehouse and marts.
-- M9: bust-out models on cross-issuer features, evaluated out of time with lead time and precision at a fixed review budget; Home Credit Default Risk bureau tables as a real-label benchmark.
+- M9: bust-out models on cross-issuer features plus streaming change-point detection (CUSUM, Bayesian online change-point detection, Kalman filtering), evaluated out of time with lead time and precision at a fixed review budget; Home Credit Default Risk bureau tables as a real-label benchmark.
 - M10: PySpark scale-up on a large simulated consortium, with a runtime comparison.
 
 ## Data and license

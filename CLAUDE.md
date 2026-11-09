@@ -61,7 +61,7 @@ Part 1, underwriting (Lending Club):
 Part 2, consortium bust-out detection:
 
 - **M8 Consortium simulator and lake**: synthetic issuers sending monthly account feeds in different formats and schedules to the lake; data contracts and per-contributor quality checks; cross-issuer customer linkage with keyed hash tokens; lake to warehouse to mart.
-- **M9 Bust-out models**: cross-issuer wallet features, out-of-time by month, lead time before charge-off, precision at a fixed review budget, separation from genuine hardship defaults; Home Credit Default Risk bureau tables as a real-label benchmark; streaming account updates.
+- **M9 Bust-out models**: cross-issuer wallet features (12-month lookback), real-time change detection (recursive features, CUSUM, Bayesian online change-point detection, Kalman filter) fused with the batch score, out-of-time by month, lead time before charge-off, precision at a fixed review budget, separation from genuine hardship defaults; Home Credit Default Risk bureau tables as a real-label benchmark; streaming account updates.
 - **M10 Scale-up**: PySpark on a large simulated consortium (Freddie Mac optional); runtime comparison against DuckDB.
 
 Dropped: the IEEE-CIS fraud module (third-party transaction fraud, a different problem from bust-out).
