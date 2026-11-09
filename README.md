@@ -7,7 +7,7 @@ This is a rebuild on public data of the kind of out-of-time credit modeling done
 ## Status
 
 - M0 to M3 done: skeleton, ingestion and warehouse, features and splits, baselines.
-- M4 to M8 pending (see Roadmap).
+- M4 to M10 pending (see Roadmap).
 
 ## Architecture
 
@@ -125,11 +125,18 @@ Most frequent first reason code on the 2014 and 2015 test loans (`ml.reason_code
 
 ## Roadmap
 
-- M4: Dagster assets for the pipeline; failing dbt tests stop the run.
+Part 1, underwriting at origination (Lending Club):
+
+- M4: raw data landed as Parquet in S3-compatible storage (MinIO); Dagster assets; failing dbt tests stop the run.
 - M5: monitoring (PSI per feature and score drift by vintage, performance decay) and Slack alerting.
-- M6: alternative models (LightGBM, CatBoost), monotonic constraints, calibration, leakage audit, fairness check, model card.
-- M7: Freddie Mac Single-Family Loan-Level Dataset with PySpark in the same layered layout.
-- M8: fraud module on IEEE-CIS Fraud Detection.
+- M6: real-time scoring service (FastAPI), online features (Feast, Redis) with a training/serving consistency test, async scoring through Kafka-compatible topics (Redpanda), shadow champion/challenger, load test, deployment on Kubernetes.
+- M7: calibration, LightGBM and CatBoost, monotonic constraints, reject inference with the Lending Club rejected applications, cutoff and policy analysis, fairness check, model card, portfolio mart and Tableau Public dashboard.
+
+Part 2, bust-out detection on consortium data (design: [docs/design_bust_out.md](docs/design_bust_out.md)):
+
+- M8: simulated consortium of card issuers sending monthly account feeds; data contracts, per-contributor quality checks, cross-issuer customer linkage with hashed tokens; lake, warehouse and marts.
+- M9: bust-out models on cross-issuer features, evaluated out of time with lead time and precision at a fixed review budget; Home Credit Default Risk bureau tables as a real-label benchmark.
+- M10: PySpark scale-up on a large simulated consortium, with a runtime comparison.
 
 ## Data and license
 

@@ -104,3 +104,13 @@ Open questions for review:
 - `addr_state` is the first reason code for most test loans under the scorecard, and is high in the XGBoost SHAP ranking. Keep it as a feature, pool it harder, or drop it? Not changed here, to avoid tuning after seeing test results.
 - Mean PD is below the observed bad rate in 2015 (vintage drift). Recalibration belongs to M6.
 - Random K-fold as a secondary comparison is not run (pending).
+
+## Plan revision (2026-11-08)
+
+No code or results changed. The roadmap now has two parts:
+
+- Part 1, underwriting at origination (Lending Club): M4 lake (Parquet on MinIO) and Dagster; M5 monitoring and Slack; M6 real-time scoring (FastAPI, Feast with Redis, Redpanda, shadow champion/challenger, Kubernetes on kind and one Terraform EKS run); M7 modernization, reject inference with the rejected applications, cutoff and policy analysis, fairness, model card, Tableau Public dashboard.
+- Part 2, bust-out detection on a simulated card-issuer consortium (M8 simulator and lake, M9 models with Home Credit as a real-label benchmark, M10 PySpark). Design draft: `docs/design_bust_out.md`.
+- The IEEE-CIS fraud module is dropped. Freddie Mac is optional.
+
+Open questions: see the design draft and the M3 questions above (`addr_state`, 2015 calibration).
