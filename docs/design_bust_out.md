@@ -49,7 +49,7 @@ A customer is a bust-out case at month t if the simulator assigned the bust-out 
 
 ## Features (examples, built in SQL)
 
-Batch features use a 12-month lookback window ending at the scoring month.
+Batch features use a 12-month lookback window ending at the scoring month. Bust-out behavior shifts over time, so the model is retrained on a rolling window and promoted only if it beats the current model on the latest months (same mechanism as Part 1, M5).
 
 - Number of open accounts and issuers, new accounts in the last 3 and 6 months.
 - Total and per-issuer utilization, and its change over 1, 3 and 6 months.

@@ -128,7 +128,7 @@ Most frequent first reason code on the 2014 and 2015 test loans (`ml.reason_code
 Part 1, underwriting at origination (Lending Club):
 
 - M4: raw data landed as Parquet in S3-compatible storage (MinIO); Dagster assets; failing dbt tests stop the run.
-- M5: monitoring (PSI per feature and score drift by vintage, performance decay) and Slack alerting.
+- M5: monitoring (PSI per feature and score drift by vintage, performance decay), retraining on a rolling 12-month window with a promotion gate, and Slack alerting.
 - M6: real-time scoring service (FastAPI), online features (Feast, Redis) with a training/serving consistency test, async scoring through Kafka-compatible topics (Redpanda), shadow champion/challenger, load test, deployment on Kubernetes.
 - M7: calibration, LightGBM and CatBoost, monotonic constraints, reject inference with the Lending Club rejected applications, cutoff and policy analysis, fairness check, model card, portfolio mart and Tableau Public dashboard.
 
